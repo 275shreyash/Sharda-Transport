@@ -1,0 +1,338 @@
+/* =========================================
+   CUSTOMER DASHBOARD - CUSTOM PREMIUM UI
+   ========================================= */
+
+/* Main Grid Layout */
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-top: 24px;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animateSlideUp {
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Profile Card Profile Panel */
+.profileCard {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border);
+    text-align: center;
+    position: sticky;
+    top: 100px;
+    /* Sticks to the side while scrolling */
+}
+
+.profileAvatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 auto 16px;
+    box-shadow: 0 8px 16px -4px rgba(37, 99, 235, 0.3);
+}
+
+.profileName {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+
+.profileEmail {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.profileDivider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+}
+
+.profileQuickActions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btnAction {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btnAction:hover {
+    background: var(--text);
+    color: white;
+    transform: translateY(-2px);
+    border-color: var(--text);
+}
+
+.btnActionPrimary {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.btnActionPrimary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    box-shadow: 0 8px 16px -4px rgba(37, 99, 235, 0.3);
+}
+
+/* Status Cards & Content Area */
+.dashboardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.moduleCard {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border);
+    transition: box-shadow 0.3s ease;
+}
+
+.moduleCard:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.moduleHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.moduleTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+/* Elevated Table */
+.modernTableWrapper {
+    overflow-x: auto;
+    margin: 0 -24px;
+    /* Bleed to edge of moduleCard */
+}
+
+.modernTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.modernTable th {
+    padding: 16px 24px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+}
+
+.modernTable td {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+}
+
+.modernTable tbody tr:hover td {
+    background: var(--surface2);
+}
+
+.modernTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Pill Badges */
+.statusPill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.status-pending {
+    background: #fffbeb;
+    color: #d97706;
+    /* Amber */
+}
+
+.status-confirmed,
+.status-completed {
+    background: #f0fdf4;
+    color: #16a34a;
+    /* Green */
+}
+
+.status-cancelled {
+    background: #fef2f2;
+    color: #dc2626;
+    /* Red */
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--surface2);
+    border-radius: 12px;
+    border: 1px dashed var(--border);
+}
+
+.emptyState p {
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+/* Responsive Dashboard */
+@media (max-width: 968px) {
+    .dashboardGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .profileCard {
+        position: relative;
+        top: 0;
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        text-align: left;
+        gap: 20px;
+    }
+
+    .profileAvatar {
+        margin: 0;
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+    }
+
+    .profileEmail {
+        margin-bottom: 0;
+    }
+
+    .profileDivider {
+        grid-column: 1 / -1;
+        margin: 16px 0;
+    }
+
+    .profileQuickActions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 768px) {
+    .profileCard {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 16px;
+    }
+
+    .profileAvatar {
+        margin: 0 auto 16px;
+    }
+
+    .profileQuickActions {
+        flex-direction: column;
+    }
+
+    .modernTable,
+    .modernTable tbody,
+    .modernTable tr,
+    .modernTable td {
+        display: block;
+        width: 100%;
+    }
+
+    .modernTable thead {
+        display: none;
+        /* Hide headers on mobile */
+    }
+
+    .modernTable tr {
+        margin-bottom: 16px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .modernTable td {
+        text-align: right;
+        padding: 12px 16px;
+        position: relative;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .modernTable td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .modernTable td:last-child {
+        border-bottom: none;
+        background: var(--surface2);
+    }
+}
