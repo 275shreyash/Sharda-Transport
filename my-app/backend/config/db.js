@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const connectDB = async () => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/sharda-transport'
+    const mongoURI = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://localhost:27017/sharda-transport'
     console.log('Attempting to connect to MongoDB...')
     console.log(`MongoDB URI: ${mongoURI.replace(/\/\/.*@/, '//***:***@')}`) // Hide credentials in logs
     
