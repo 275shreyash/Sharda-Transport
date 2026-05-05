@@ -4,7 +4,7 @@ export const siteConfig = {
   phoneDisplay: '+91 90000 00000',
   phoneE164: '+919000000000',
   whatsappE164: '+919000000000',
-  email: 'shardatransport@example.com',
+  email: 'shardatransport@gmail.com',
   addressLine: 'Your Office Address, City, State',
   serviceAreas: ['Local', 'Outstation', 'All India'],
   socialLinks: {
